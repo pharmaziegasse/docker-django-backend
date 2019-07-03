@@ -43,108 +43,108 @@ class Button(models.Model):
     def __str__(self):
       return self.button_title
 
-
 class Hero_SlideBlock(blocks.StructBlock):
-    slide_head = blocks.CharBlock(null=True, blank=False, classname="full title")
-    slide_subhead = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    slide_image = ImageChooserBlock(null=True, blank=False)
-    slide_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    slide_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="The bold header text at the frontpage slider") 
+    slide_subhead = blocks.RichTextBlock(null=True, blank=False, help_text="The content of the frontpage slider element", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    slide_image = ImageChooserBlock(null=True, blank=False, help_text="Big, high resolution slider image")
+    slide_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="The button displayed at the frontpage slider")
 
 class  _H_HeroBlock(blocks.ListBlock):
     def __init__(self, **kwargs): 
         super(_H_HeroBlock, self).__init__(Hero_SlideBlock(), **kwargs) 
     
 class Why_CollumBlock(blocks.StructBlock):
-    collum_image = ImageChooserBlock(null=True, blank=False)
-    collum_paragraph = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    collum_image = ImageChooserBlock(null=True, blank=False, help_text="Icon representating the below content")
+    collum_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Formatted text", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
 class _S_WhyBlock(blocks.StructBlock):
     why_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    why_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    why_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
+    why_head_color = ColorBlock(null=True, blank=False, help_text="Select color that coontrasts background")
     why_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
-    why_collum1 = Why_CollumBlock(null=True, blank=False, icon='cogs')
-    why_collum2 = Why_CollumBlock(null=True, blank=False, icon='cogs')
-    why_collum3 = Why_CollumBlock(null=True, blank=False, icon='cogs')
-    why_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    why_collum1 = Why_CollumBlock(null=True, blank=False, icon='cogs', help_text="Left block")
+    why_collum2 = Why_CollumBlock(null=True, blank=False, icon='cogs', help_text="Middle block")
+    why_collum3 = Why_CollumBlock(null=True, blank=False, icon='cogs', help_text="Right block")
+    why_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at why-section")
 
 class _S_IndividualBlock(blocks.StructBlock):
     individual_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    individual_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    individual_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     individual_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
-    individual_image = ImageChooserBlock(null=True, blank=False)
-    individual_lead = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    individual_paragraph = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    individual_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    individual_image = ImageChooserBlock(null=True, blank=False, help_text="Individual-fitting image")
+    individual_lead = blocks.RichTextBlock(null=True, blank=False, help_text="Bigger leading RichText paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    individual_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    individual_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at individual-section")
 
 class _S_ExpertsBlock(blocks.StructBlock):
     experts_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    experts_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    experts_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     experts_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
-    experts_image = ImageChooserBlock(null=True, blank=False)
-    experts_lead = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    experts_paragraph = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    experts_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    experts_image = ImageChooserBlock(null=True, blank=False, help_text="Experts-fitting image")
+    experts_lead = blocks.RichTextBlock(null=True, blank=False, help_text="Bigger leading RichText paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    experts_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    experts_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at expert-section")
 
 class _S_LabBlock(blocks.StructBlock):
     lab_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    lab_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    lab_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     lab_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
-    lab_image = ImageChooserBlock(null=True, blank=False)
-    lab_lead = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    lab_paragraph = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    lab_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    lab_image = ImageChooserBlock(null=True, blank=False, help_text="Lab-fitting image")
+    lab_lead = blocks.RichTextBlock(null=True, blank=False, help_text="Bigger leading RichText paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    lab_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    lab_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at lab-section")
 
 class Method_SphereBlock(blocks.StructBlock):
     sphere_step = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
 class _S_MethodBlock(blocks.StructBlock):
     method_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    method_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    method_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     method_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
-    method_sphere1 = Method_SphereBlock(null=True, blank=False, icon='cogs')
-    method_sphere2 = Method_SphereBlock(null=True, blank=False, icon='cogs')
-    method_sphere3 = Method_SphereBlock(null=True, blank=False, icon='cogs')
-    method_sphere4 = Method_SphereBlock(null=True, blank=False, icon='cogs')
-    method_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    method_sphere1 = Method_SphereBlock(null=True, blank=False, icon='cogs', help_text="Top sphere")
+    method_sphere2 = Method_SphereBlock(null=True, blank=False, icon='cogs', help_text="Left sphere")
+    method_sphere3 = Method_SphereBlock(null=True, blank=False, icon='cogs', help_text="Right sphere")
+    method_sphere4 = Method_SphereBlock(null=True, blank=False, icon='cogs', help_text="Bottom sphere")
+    method_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at method-section")
 
 class Services_ServiceBlock(blocks.StructBlock):
-    service_head = blocks.CharBlock()
-    service_content = blocks.RichTextBlock()
+    service_head = blocks.CharBlock(null=True, blank=False, help_text="Bold service header text")
+    service_content = blocks.RichTextBlock(null=True, blank=False, help_text="Description of the service", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
 class _S_ServicesBlock(blocks.StructBlock):
     services_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    services_services  = blocks.StreamBlock([
+    services_services = blocks.StreamBlock([
       ('service', Services_ServiceBlock(null=True, blank=False, icon='doc-full'))
     ], null=True, blank=False)
-    services_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    services_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at services-block")
 
 class Reviews_ReviewBlock(blocks.StructBlock):
-    review_image = ImageChooserBlock(null=True, blank=False)
-    review_quote = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    review_name = blocks.CharBlock(null=True, blank=False, classname="full")
-    review_info = blocks.CharBlock(null=True, blank=False, classname="full")
+    review_image = ImageChooserBlock(null=True, blank=False, help_text="Picture of reviewing person")
+    review_quote = blocks.RichTextBlock(null=True, blank=False, help_text="Customer's opinion", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    review_name = blocks.CharBlock(null=True, blank=False, classname="full", help_text="Reviewer's name")
+    review_info = blocks.CharBlock(null=True, blank=False, classname="full", help_text="Additional reviewers information. E.g. profession")
 
 class _S_ReviewsBlock(blocks.StructBlock):
     reviews_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    reviews_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    reviews_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     reviews_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
     reviews_reviews = blocks.StreamBlock([
       ('review', Reviews_ReviewBlock(null=True, blank=False))
     ], null=True, blank=False)
 
 class Facebook_PostBlock(blocks.StructBlock):
-    facebook_url = blocks.URLBlock(null=True, blank=False, classname="full")
+    facebook_url = blocks.URLBlock(null=True, blank=False, classname="full", help_text="URL of Facebook-Post")
 
 class _S_FacebookBlock(blocks.StructBlock):
     facebook_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    facebook_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    facebook_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     facebook_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
     facebook_urls = blocks.StreamBlock([
       ('facebook', Facebook_PostBlock(null=True, blank=False))
     ], null=True, blank=False, max_num=3)
 
 class Instagram_PostBlock(blocks.StructBlock):
-    instagram_url = blocks.URLBlock(null=True, blank=False, classname="full")
+    instagram_url = blocks.URLBlock(null=True, blank=False, classname="full", help_text="URL to Instagram-Post")
 
 class _S_InstagramBlock(blocks.StructBlock):
     instagram_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
@@ -156,14 +156,14 @@ class _S_InstagramBlock(blocks.StructBlock):
     ], null=True, blank=False, max_num=3)
 
 class Pricing_PricingcardBlock(blocks.StructBlock):
-    pricingcard_title = blocks.CharBlock(null=True, blank=False, classname="full title")
-    pricingcard_description = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-    pricingcard_price = blocks.DecimalBlock(null=True, blank=False, decimal_places=2)
-    pricingcard_button = SnippetChooserBlock(Button, null=True, blank=True, required=False)
+    pricingcard_title = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Title of pricing card")
+    pricingcard_description = blocks.RichTextBlock(null=True, blank=False, help_text="Description of offer", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    pricingcard_price = blocks.DecimalBlock(null=True, blank=False, decimal_places=2, help="Price of the offer")
+    pricingcard_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at the pricing-section")
 
 class _S_PricingBlock(blocks.StructBlock):
     pricing_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    pricing_head = blocks.CharBlock(null=True, blank=False, classname="full title")
+    pricing_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     pricing_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
     pricing_pricingcards = blocks.StreamBlock([
       ('pricingcard', Pricing_PricingcardBlock(null=True, blank=False))
@@ -171,10 +171,10 @@ class _S_PricingBlock(blocks.StructBlock):
 
 class _S_AboutBlock(blocks.StructBlock):
     about_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    about_image = ImageChooserBlock(null=True, blank=False)
+    about_image = ImageChooserBlock(null=True, blank=False, help_text="Office-fitting image")
     about_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Display block head if it fits the design context")
-    about_head = blocks.CharBlock(null=True, blank=False, classname="full title")
-    about_paragraph = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    about_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
+    about_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Paragraph about the company", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
 class _F_InfoBlock(blocks.StructBlock):
     info_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
