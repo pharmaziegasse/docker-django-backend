@@ -24,3 +24,7 @@ __pycache__/
 
 # Docker
 .env
+
+# Virtual environment
+dev-venv
+win-devenv

@@ -24,15 +24,24 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'esite.home',
-    'esite.search',
+#    'esite.api',
+    'esite.core',
+#    'esite.registration',
+#    'esite.user',
+#    'esite.customer',
+#    'esite.home',
+#    'esite.charm',
 
+ #   'esite.colorfield',
+
+    'django_filters',
     'rest_framework',
     'graphene_django',
     'corsheaders',
     'modelcluster',
     'taggit',
     'wagtailfontawesome',
+    #'wagtailcolourpicker',
 
     'wagtail.contrib.search_promotions',
     'wagtail.contrib.forms',
@@ -47,6 +56,7 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.routable_page',
+    'wagtail.contrib.styleguide',
     'wagtail.core',
 
     'django.contrib.admin',
@@ -71,6 +81,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+#    'graphql_jwt.middleware.JSONWebTokenMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -109,6 +121,28 @@ DATABASES = {
 }
 
 
+#GRAPHENE = {
+#    'SCHEMA': 'esite.api.schema.schema',
+#}
+
+GRAPHQL_API = {
+    'APPS': [
+        'home',
+        'registration',
+    ],
+    'PREFIX': {
+    },
+    'URL_PREFIX': {
+
+    },
+    'RELAY': False,
+}
+
+AUTHENTICATION_BACKENDS = [
+#    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -127,13 +161,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#AUTH_USER_MODEL = 'user.User'
+#AUTH_PROFILE_MODULE = 'avatar.Avatar'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'UTC+2'
 
 USE_I18N = True
 
@@ -165,6 +201,13 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# picker icon
+#WAGTAILCOLOURPICKER_ICON = ['...']
+# Add your colours
+#WAGTAILCOLOURPICKER_COLOURS = {
+#   'black': '#000000',
+#   'white': '#ffffff'
+#}
 
 # Wagtail settings
 

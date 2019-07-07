@@ -2,11 +2,11 @@
 import os
 import sys
 
-import dotenv
+##import dotenv
 
 
 if __name__ == "__main__":
-    dotenv.read_dotenv()
+    #dotenv.read_dotenv()
 
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "esite.settings.dev")
 
