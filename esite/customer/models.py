@@ -14,13 +14,18 @@ from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField, A
 from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 from esite.user.models import User
 
+
+# Model manager to use in Proxy model
 class ProxyManager(BaseUserManager):
     def get_queryset(self):
+        # filter the objects for activate customer datasets based on the User model
         return super(ProxyManager, self).get_queryset().filter(is_customer=True)
 
 class Customer(User):
+    # call the model manager on user objects
     objects = ProxyManager()
 
+    # Panels/fields to fill in the Add Customer form
     panels = [
         FieldPanel('is_customer'),
         FieldPanel('date_joined'),
