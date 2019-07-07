@@ -27,8 +27,8 @@ INSTALLED_APPS = [
     'esite.core',
     'esite.api',
     'esite.user',
+    'esite.customer',
 #    'esite.registration',
-#    'esite.customer',
 #    'esite.home',
 #    'esite.charm',
 
