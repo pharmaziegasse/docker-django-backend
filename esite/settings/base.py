@@ -24,10 +24,10 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'esite.api',
     'esite.core',
+    'esite.api',
+    'esite.user',
 #    'esite.registration',
-#    'esite.user',
 #    'esite.customer',
 #    'esite.home',
 #    'esite.charm',
@@ -161,7 +161,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#AUTH_USER_MODEL = 'user.User'
+AUTH_USER_MODEL = 'user.User'
 #AUTH_PROFILE_MODULE = 'avatar.Avatar'
 
 # Internationalization
