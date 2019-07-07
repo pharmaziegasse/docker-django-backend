@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-#    'esite.api',
+    'esite.api',
     'esite.core',
 #    'esite.registration',
 #    'esite.user',
@@ -121,14 +121,14 @@ DATABASES = {
 }
 
 
-#GRAPHENE = {
-#    'SCHEMA': 'esite.api.schema.schema',
-#}
+GRAPHENE = {
+    'SCHEMA': 'esite.api.schema.schema',
+}
 
 GRAPHQL_API = {
     'APPS': [
-        'home',
-        'registration',
+        #'home',
+        #'registration',
     ],
     'PREFIX': {
     },

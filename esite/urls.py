@@ -56,7 +56,7 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    #url(r'^api/graphql', csrf_exempt(GraphQLView.as_view())),
-    #url(r'^api/graphiql', csrf_exempt(GraphQLView.as_view(graphiql=True, pretty=True))),
+    url(r'^api/graphql', csrf_exempt(GraphQLView.as_view())),
+    url(r'^api/graphiql', csrf_exempt(GraphQLView.as_view(graphiql=True, pretty=True))),
     url(r'^images/([^/]*)/(\d*)/([^/]*)/[^/]*$', ServeView.as_view(), name='wagtailimages_serve'),
 ]
