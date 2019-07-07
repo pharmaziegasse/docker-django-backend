@@ -17,7 +17,9 @@ from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField, A
 from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 
 class User(AbstractUser):
-    username = models.CharField(null=True, blank=False, unique=True, default=str(uuid.uuid4()), max_length=36)
+    # AbstractUser.username used as uuid field
+    username = models.CharField(null=True, blank=False, unique=True, verbose_name="uuid", default=str(uuid.uuid4()), max_length=36)
+    
     is_customer = models.BooleanField(blank=False, default=False)
     title = models.CharField(null=True, blank=False, max_length=12)
     birthdate = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=False)
