@@ -1,9 +1,9 @@
 from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register)
 
-from .models import User
+from .models import Customer
 
 class CustomerAdmin(ModelAdmin):
-    model = User
+    model = Customer
     menu_label = "Customer"
     menu_icon = "user"
     menu_order = 290
