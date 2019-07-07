@@ -16,14 +16,17 @@ from wagtail.admin.edit_handlers import TabbedInterface, ObjectList, InlinePanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 
+# extend AbstractUser Model from django.contrib.auth.models
 class User(AbstractUser):
     # AbstractUser.username used as uuid field
     username = models.CharField(null=True, blank=False, unique=True, verbose_name="uuid", default=str(uuid.uuid4()), max_length=36)
-    
+
+    # AbstractUser Fields adjusted -> blank=False
     first_name = models.CharField(_('first name'), max_length=30, blank=False)
     last_name = models.CharField(_('last name'), max_length=150, blank=False)
     email = models.EmailField(_('email address'), blank=False)
 
+    # new fields
     is_customer = models.BooleanField(blank=False, default=False)
     title = models.CharField(null=True, blank=False, max_length=12)
     birthdate = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=False)
@@ -34,7 +37,8 @@ class User(AbstractUser):
     country = models.CharField(null=True, blank=False,max_length=2)
     newsletter = models.BooleanField(null=True, blank=False)
     registration_data = models.TextField(null=True, blank=True)
-
+    
+    # Panels/fields to fill in the Add User form
     panels = [
         FieldPanel('is_customer'),
         FieldPanel('date_joined'),

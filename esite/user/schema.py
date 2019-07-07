@@ -32,6 +32,7 @@ class CreateUser(graphene.Mutation):
 
         user.set_password(password)
         user.save()
+        # saved to our user objects as a wagtail user
 
         return CreateUser(user=user)
 
@@ -45,6 +46,7 @@ class Query(graphene.ObjectType):
     users = graphene.List(UserType)
 
     def resolve_users(self, info):
+        # To list all users
         return User.objects.all()
 
     def resolve_me(self, info):
