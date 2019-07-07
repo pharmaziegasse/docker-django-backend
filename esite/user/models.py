@@ -20,6 +20,10 @@ class User(AbstractUser):
     # AbstractUser.username used as uuid field
     username = models.CharField(null=True, blank=False, unique=True, verbose_name="uuid", default=str(uuid.uuid4()), max_length=36)
     
+    first_name = models.CharField(_('first name'), max_length=30, blank=False)
+    last_name = models.CharField(_('last name'), max_length=150, blank=False)
+    email = models.EmailField(_('email address'), blank=False)
+
     is_customer = models.BooleanField(blank=False, default=False)
     title = models.CharField(null=True, blank=False, max_length=12)
     birthdate = models.DateField(auto_now=False, auto_now_add=False, null=True, blank=False)
