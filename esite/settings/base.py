@@ -81,8 +81,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'graphql_jwt.middleware.JSONWebTokenMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -123,6 +121,9 @@ DATABASES = {
 
 GRAPHENE = {
     'SCHEMA': 'esite.api.schema.schema',
+    'MIDDLWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ]
 }
 
 GRAPHQL_API = {
