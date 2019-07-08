@@ -50,3 +50,64 @@ class Registration(User):
     class Meta:
         proxy = True
         ordering = ('date_joined', )
+
+class FormField(AbstractFormField):
+    page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
+
+class FormPage(AbstractEmailForm):
+    registration_head = models.CharField(null=True, blank=False, max_length=255)
+
+    content_panels = [
+        FieldPanel('registration_head', classname="full title"),
+    ]
+
+    def get_submission_class(self):
+        return RegistrationFormSubmission
+
+    def create_user(self, title, first_name, last_name, email, telephone, address, city, country, newsletter, registration_data):
+        user = get_user_model()(
+            username=uuid.uuid4(),
+            is_customer=False,
+            title=title,
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            telephone=telephone,
+            address=address,
+            #zip_code=zip_code,
+            city=city,
+            country=country,
+            newsletter=False,
+            #verified=True,
+            registration_data=registration_data,
+        )
+
+        user.set_password("password")
+        user.save()
+
+        return user
+
+    def process_form_submission(self, form):
+        user=self.create_user(
+            title=form.cleaned_data['title'],
+            first_name=form.cleaned_data['first_name'],
+            last_name=form.cleaned_data['last_name'],
+            email=form.cleaned_data['email'],
+            telephone=form.cleaned_data['telephone'],
+            address=form.cleaned_data['address'],
+            #zip_code=form.cleaned_data['zip_code'],
+            city=form.cleaned_data['city'],
+            country=form.cleaned_data['country'],
+            newsletter=form.cleaned_data['newsletter'],
+            #verified=form.cleaned_data['verified'],
+            registration_data=json.dumps(form.cleaned_data, cls=DjangoJSONEncoder),
+        )
+
+        self.get_submission_class().objects.create(
+            form_data=json.dumps(form.cleaned_data, cls=DjangoJSONEncoder),
+            page=self,
+            user=user,
+        )
+
+class RegistrationFormSubmission(AbstractFormSubmission):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
