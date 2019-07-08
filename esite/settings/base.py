@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'esite.api',
     'esite.user',
     'esite.customer',
-    'esite.registration'
+    'esite.registration',
 #    'esite.home',
 #    'esite.charm',
 
@@ -82,7 +82,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-#    'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    'graphql_jwt.middleware.JSONWebTokenMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -128,7 +128,7 @@ GRAPHENE = {
 GRAPHQL_API = {
     'APPS': [
         #'home',
-        #'registration',
+        'registration',
     ],
     'PREFIX': {
     },
@@ -139,7 +139,7 @@ GRAPHQL_API = {
 }
 
 AUTHENTICATION_BACKENDS = [
-#    'graphql_jwt.backends.JSONWebTokenBackend',
+    'graphql_jwt.backends.JSONWebTokenBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
 
