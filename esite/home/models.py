@@ -37,6 +37,7 @@ class Button(models.Model):
     def __str__(self):
       return self.button_title
 
+## Header ##
 class Hero_SlideBlock(blocks.StructBlock):
     slide_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="The bold header text at the frontpage slider") 
     slide_subhead = blocks.RichTextBlock(null=True, blank=False, help_text="The content of the frontpage slider element", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
@@ -47,6 +48,8 @@ class  _H_HeroBlock(blocks.ListBlock):
     def __init__(self, **kwargs):
         super(_H_HeroBlock, self).__init__(Hero_SlideBlock(), **kwargs)
     
+
+## Why Section ##
 class Why_CollumBlock(blocks.StructBlock):
     collum_image = ImageChooserBlock(null=True, blank=False, help_text="Icon representating the below content")
     collum_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Formatted text", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
@@ -58,6 +61,8 @@ class _S_WhyBlock(blocks.StructBlock):
     why_collum3 = Why_CollumBlock(null=True, blank=False, icon='cogs', help_text="Right block")
     why_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at why-section")
 
+
+## Individual Section ##
 class _S_IndividualBlock(blocks.StructBlock):
     individual_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     individual_image = ImageChooserBlock(null=True, blank=False, help_text="Individual-fitting image")
@@ -65,6 +70,8 @@ class _S_IndividualBlock(blocks.StructBlock):
     individual_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     individual_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at individual-section")
 
+
+## Experts Section ##
 class _S_ExpertsBlock(blocks.StructBlock):
     experts_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     experts_image = ImageChooserBlock(null=True, blank=False, help_text="Experts-fitting image")
@@ -79,6 +86,8 @@ class _S_LabBlock(blocks.StructBlock):
     lab_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     lab_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at lab-section")
 
+
+## Method Section ##
 class Method_SphereBlock(blocks.StructBlock):
     sphere_step = blocks.RichTextBlock(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
@@ -90,6 +99,8 @@ class _S_MethodBlock(blocks.StructBlock):
     method_sphere4 = Method_SphereBlock(null=True, blank=False, icon='cogs', help_text="Bottom sphere")
     method_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at method-section")
 
+
+## Services Section ##
 class Services_ServiceBlock(blocks.StructBlock):
     service_head = blocks.CharBlock(null=True, blank=False, help_text="Bold service header text")
     service_content = blocks.RichTextBlock(null=True, blank=False, help_text="Description of the service", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
@@ -100,6 +111,8 @@ class _S_ServicesBlock(blocks.StructBlock):
     ], null=True, blank=False)
     services_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at services-block")
 
+
+## Reviews Section ##
 class Reviews_ReviewBlock(blocks.StructBlock):
     review_image = ImageChooserBlock(null=True, blank=False, help_text="Picture of reviewing person")
     review_quote = blocks.RichTextBlock(null=True, blank=False, help_text="Customer's opinion", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
@@ -112,6 +125,8 @@ class _S_ReviewsBlock(blocks.StructBlock):
       ('review', Reviews_ReviewBlock(null=True, blank=False))
     ], null=True, blank=False)
 
+
+## Facebook Section ##
 class Facebook_PostBlock(blocks.StructBlock):
     facebook_url = blocks.URLBlock(null=True, blank=False, classname="full", help_text="URL of Facebook-Post")
 
@@ -121,6 +136,8 @@ class _S_FacebookBlock(blocks.StructBlock):
       ('facebook', Facebook_PostBlock(null=True, blank=False))
     ], null=True, blank=False, max_num=3)
 
+
+## Instagram Section ##
 class Instagram_PostBlock(blocks.StructBlock):
     instagram_url = blocks.URLBlock(null=True, blank=False, classname="full", help_text="URL to Instagram-Post")
 
@@ -131,6 +148,8 @@ class _S_InstagramBlock(blocks.StructBlock):
       ('instagram',Instagram_PostBlock(null=True, blank=False))
     ], null=True, blank=False, max_num=3)
 
+
+## Pricing Section ##
 class Pricing_PricingcardBlock(blocks.StructBlock):
     pricingcard_title = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Title of pricing card")
     pricingcard_description = blocks.RichTextBlock(null=True, blank=False, help_text="Description of offer", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
@@ -143,15 +162,20 @@ class _S_PricingBlock(blocks.StructBlock):
       ('pricingcard', Pricing_PricingcardBlock(null=True, blank=False))
     ], null=True, blank=False, max_num=3)
 
+
+## About Section ##
 class _S_AboutBlock(blocks.StructBlock):
     about_image = ImageChooserBlock(null=True, blank=False, help_text="Office-fitting image")
     about_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     about_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Paragraph about the company", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
+
+## Footer ##
 class _F_InfoBlock(blocks.StructBlock):
     info_placeholder = blocks.CharBlock(null=True, blank=False, classname="full")
 
 
+## Homepage ##
 class UniquePage(Page):
     city = models.CharField(null=True, blank=False, max_length=255)
     zip_code = models.CharField(null=True, blank=False, max_length=255)
@@ -252,44 +276,3 @@ class UniquePage(Page):
       ObjectList(imprint_panels, heading='Imprint'),
       ObjectList(Page.promote_panels + token_panel + Page.settings_panels, heading='Settings', classname="settings")
     ])
-
-#class FormField(AbstractFormField):
-#    page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
-
-
-#class FormPage(AbstractForm):
-#    registration_head = models.CharField(null=True, blank=False, max_length=255)
-#    registration_newsletter_text = models.CharField(null=True, blank=False, max_length=255)
-#    registration_privacy_text = RichTextField(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'])
-#    registration_info_text = RichTextField(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'])
-#    registration_button = models.ForeignKey(
-#        'home.Button',
-#        null=True,
-#        blank=False,
-#        on_delete=models.SET_NULL,
-#        related_name='+'
-#    )
-
-#    registration_step_text = RichTextField(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'])
-#    thank_you_text = RichTextField(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'])
-
-#    content_panels = AbstractForm.content_panels + [
-#      MultiFieldPanel(
-#        [
-#          FieldPanel('registration_head', classname="full title"),
-#          FieldPanel('registration_newsletter_text', classname="full"),
-#          FieldPanel('registration_privacy_text', classname="full"),
-#          FieldPanel('registration_info_text', classname="full"),
-#          FieldPanel('registration_step_text', classname="full"),
-#          SnippetChooserPanel('registration_button', classname="full"),
-#          FieldPanel('thank_you_text', classname="full")
-#        ],
-#        heading="content",
-#      ),
-#      MultiFieldPanel(
-#        [
-#          InlinePanel('form_fields', label="Form fields")
-#        ],
-#        heading="data",
-#      )
-#    ]
