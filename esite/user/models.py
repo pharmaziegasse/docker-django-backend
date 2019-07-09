@@ -18,9 +18,6 @@ from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, Abstra
 
 # extend AbstractUser Model from django.contrib.auth.models
 class User(AbstractUser):
-    # AbstractUser.username used as uuid field
-    username = models.CharField(null=True, blank=False, unique=True, verbose_name="uuid", default=str(uuid.uuid4()), max_length=36)
-
     # AbstractUser Fields adjusted -> blank=False
     first_name = models.CharField(_('first name'), max_length=30, blank=False)
     last_name = models.CharField(_('last name'), max_length=150, blank=False)
@@ -56,4 +53,4 @@ class User(AbstractUser):
     ]
 
     def __str__(self):
-        return self.username
+        return str(self.username)

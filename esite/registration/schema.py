@@ -35,6 +35,7 @@ class CreateUser(graphene.Mutation):
 
         user.set_password(password)
         user.save()
+        # saved to our user objects as a wagtail user
 
         return CreateUser(user=user)
 
@@ -48,6 +49,7 @@ class Query(graphene.ObjectType):
     users = graphene.List(UserType)
     customers = graphene.List(UserType)
 
+    # List all Users
     def resolve_users(self, info):
         user = info.context.user
         if user.is_anonymous:
@@ -56,6 +58,7 @@ class Query(graphene.ObjectType):
             raise Exception('You must be superuser to list a user')
         return User.objects.all()
 
+    # List all Customers
     def resolve_customers(self, info):
         user = info.context.user
         if user.is_anonymous:

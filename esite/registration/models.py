@@ -51,10 +51,12 @@ class Registration(User):
         proxy = True
         ordering = ('date_joined', )
 
+
 class FormField(AbstractFormField):
     page = ParentalKey('FormPage', on_delete=models.CASCADE, related_name='form_fields')
 
 class FormPage(AbstractEmailForm):
+    # When creating a new Form page in Wagtail
     registration_head = models.CharField(null=True, blank=False, max_length=255)
 
     content_panels = [
@@ -64,6 +66,7 @@ class FormPage(AbstractEmailForm):
     def get_submission_class(self):
         return RegistrationFormSubmission
 
+    # Create a new user
     def create_user(self, title, first_name, last_name, email, telephone, address, city, country, newsletter, registration_data):
         user = get_user_model()(
             username=uuid.uuid4(),
@@ -87,6 +90,7 @@ class FormPage(AbstractEmailForm):
 
         return user
 
+    # Called when a user registers
     def process_form_submission(self, form):
         user=self.create_user(
             title=form.cleaned_data['title'],

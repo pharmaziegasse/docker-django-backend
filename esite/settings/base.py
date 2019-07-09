@@ -29,10 +29,10 @@ INSTALLED_APPS = [
     'esite.user',
     'esite.customer',
     'esite.registration',
-#    'esite.home',
+    'esite.home',
 #    'esite.charm',
 
- #   'esite.colorfield',
+#    'esite.colorfield',
 
     'django_filters',
     'rest_framework',
@@ -128,7 +128,7 @@ GRAPHENE = {
 
 GRAPHQL_API = {
     'APPS': [
-        #'home',
+        'home',
         'registration',
     ],
     'PREFIX': {
