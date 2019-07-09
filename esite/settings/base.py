@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'esite.home',
 #    'esite.charm',
 
-#    'esite.colorfield',
+    'esite.colorfield',
 
     'django_filters',
     'rest_framework',
