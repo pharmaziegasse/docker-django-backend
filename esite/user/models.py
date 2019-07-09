@@ -48,21 +48,21 @@ class User(AbstractUser):
         super(User, self).save(*args, **kwargs)
 
     # Panels/fields to fill in the Add User form
-    panels = [
-        FieldPanel('is_customer'),
-        FieldPanel('date_joined'),
-        FieldPanel('title'),
-        FieldPanel('first_name'),
-        FieldPanel('last_name'),
-        FieldPanel('email'),
-        FieldPanel('telephone'),
-        FieldPanel('address'),
-        FieldPanel('zipCode'),
-        FieldPanel('city'),
-        FieldPanel('country'),
-        FieldPanel('newsletter'),
-        FieldPanel('registration_data'),
-    ]
+#    panels = [
+ #       FieldPanel('is_customer'),
+  #      FieldPanel('date_joined'),
+   #     FieldPanel('title'),
+    #    FieldPanel('first_name'),
+     #   FieldPanel('last_name'),
+      #  FieldPanel('email'),
+       # FieldPanel('telephone'),
+#        FieldPanel('address'),
+ #       FieldPanel('zipCode'),
+  #      FieldPanel('city'),
+   #     FieldPanel('country'),
+    #    FieldPanel('newsletter'),
+     #   FieldPanel('registration_data'),
+#    ]
 
     def __str__(self):
         return str(self.username)
