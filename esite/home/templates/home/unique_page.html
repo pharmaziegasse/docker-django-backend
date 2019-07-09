@@ -176,7 +176,7 @@
             {% for s in page.sections %}
             {% if s.block_type == 's_why' %}
             <section id="why" style="background-color: {{ s.value.why_background }};">
-                <div class="container text-center py-5 section-text-white">
+                <div class="container text-center py-5">
                     {% if s.value.why_displayhead %}
                     <h2 class="font-weight-bold">{{ s.value.why_head }}</h2>
                     {% endif %}
@@ -230,7 +230,7 @@
             
             {% if s.block_type == 's_facebook' %}
             <section id="facebook" style="background-color: {{ s.value.facebook_background }}">
-                <div class="container py-5 section-text-grey">
+                <div class="container py-5">
                     {% if s.value.facebook_displayhead %}
                     <h2 class="font-weight-bold">{{ s.value.facebook_head }}</h2>
                     {% endif %}
@@ -259,7 +259,7 @@
             
             {% if s.block_type == 's_experts' %}
             <section id="experts" style="background-color: {{ s.value.experts_background }}">
-                <div class="container pt-5 text-left section-text-grey">
+                <div class="container pt-5 text-left">
                     {% if s.value.experts_displayhead %}
                     <h2 class="font-weight-bold">{{ s.value.experts_head }}</h2>
                     {% endif %}
@@ -368,7 +368,7 @@
             
             {% if s.block_type == 's_individual' %}
             <section id="individual" style="background-color: {{ s.value.individual_background }};">
-                <div class="container py-5 text-left section-text-grey">
+                <div class="container py-5 text-left">
                     {% if s.value.individual_displayhead %}
                     <h2 class="font-weight-bold">{{ s.value.individual_head }}</h2>
                     {% endif %}
@@ -406,7 +406,7 @@
 
             {% if s.block_type == 's_method' %}
             <section id="method" style="background-color: {{ s.value.method_background }};">
-                <div class="container py-5 section-text-white">
+                <div class="container py-5">
                     {% if s.value.method_displayhead %}
                     <h2 class="h1-responsive font-weight-bold mb-5 pb-5">{{ s.value.method_head }}</h2>
                     {% endif %}
@@ -477,7 +477,7 @@
 
             {% if s.block_type == 's_instagram' %}
             <section id="gallery" style="background-color: {{ s.value.instagram_background }};">
-                <div class="container instagram py-5 section-text-grey">
+                <div class="container instagram py-5">
                     {% if s.value.instagram_displayhead %}
                     <h2 class="font-weight-bold">{{ s.value.instagram_head }}</h2>
                     {% endif %}
@@ -500,7 +500,7 @@
      
             {% if s.block_type == 's_reviews' %}
             <section id="reviews" style="background-color: {{ s.value.reviews_background }}">
-                <div class="container py-5 section-text-grey">
+                <div class="container py-5">
                     {% if s.value.reviews_displayhead %}
                     <h2 class="h1-responsive font-weight-bold mb-5">{{ s.value.reviews_head }}</h2>
                     {% endif %}
@@ -558,7 +558,7 @@
             
             {% if s.block_type == 's_pricing' %}
             <section id="pricing" style="background-color: {{ s.value.pricing_background }}">
-                <div class="container py-5 section-text-grey">
+                <div class="container py-5">
                     {% if s.value.pricing_displayhead %}
                     <h2 class="h1-responsive font-weight-bold mb-5">{{ s.value.pricing_head }}</h2>
                     {% endif %}
@@ -889,6 +889,25 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
+        // set font color black or white per section to fit background color
+        for (sec of document.getElementsByTagName('section')) {
+            let bgcolor = sec.style.backgroundColor;
+            sec.setAttribute("class", isDark(bgcolor));
+        }
+
+        function isDark(rgb) {
+            let match = /rgb\((\d+).*?(\d+).*?(\d+)\)/.exec(rgb);
+            let result = ( match[1] & 255 )
+                + ( match[2] & 255 )
+                + ( match[3] & 255 )
+                < 3 * 256 / 2;
+            if(result){
+                return "section-text-white";
+            } else {
+                return "section-text-grey";
+            }
+        }
         </script>
 </body>
 </html>
