@@ -1,5 +1,6 @@
 import json
 import uuid
+import django.contrib.auth.validators
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 from django.core.serializers.json import DjangoJSONEncoder
@@ -18,6 +19,9 @@ from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, Abstra
 
 # extend AbstractUser Model from django.contrib.auth.models
 class User(AbstractUser):
+    # AbstractUser.username field (modified max_length)
+    username = models.CharField(null=True, blank=False, error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 36 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=36, unique=True, validators=[django.contrib.auth.validators.UnicodeUsernameValidator()], verbose_name='username')
+
     # AbstractUser Fields adjusted -> blank=False
     first_name = models.CharField(_('first name'), max_length=30, blank=False)
     last_name = models.CharField(_('last name'), max_length=150, blank=False)
@@ -35,6 +39,14 @@ class User(AbstractUser):
     newsletter = models.BooleanField(null=True, blank=False)
     registration_data = models.TextField(null=True, blank=True)
     
+
+    # new function to save user object
+    def save(self, *args, **kwargs):
+        if not self.username:
+            self.username = str(uuid.uuid4())
+
+        super(User, self).save(*args, **kwargs)
+
     # Panels/fields to fill in the Add User form
     panels = [
         FieldPanel('is_customer'),
