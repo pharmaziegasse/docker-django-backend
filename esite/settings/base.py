@@ -24,13 +24,13 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Application definition
 
 INSTALLED_APPS = [
-    'esite.core',
     'esite.api',
+    'esite.core',
+    'esite.registration',
     'esite.user',
     'esite.customer',
-    'esite.registration',
     'esite.home',
-#    'esite.charm',
+    'esite.charm',
 
     'esite.colorfield',
 
@@ -121,9 +121,13 @@ DATABASES = {
 
 GRAPHENE = {
     'SCHEMA': 'esite.api.schema.schema',
-    'MIDDLWARE': [
+    'MIDDLEWARE': [
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
-    ]
+    ],
+}
+
+GRAPHQL_JWT = {
+    'JWT_ALLOW_ARGUMENT': True,
 }
 
 GRAPHQL_API = {

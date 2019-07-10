@@ -7,6 +7,8 @@ from esite.home.models import HomePage, Button, User
 from graphene.types.generic import GenericScalar
 from .graphene_wagtail import DefaultStreamBlock, create_stream_field_type
 
+# Create your homepage related graphql schemes here.
+
 class UserNode(DjangoObjectType):
     class Meta:
         model = User

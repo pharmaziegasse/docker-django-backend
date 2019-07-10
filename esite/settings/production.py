@@ -28,7 +28,15 @@ SECURE_SSL_REDIRECT = os.getenv('DJANGO_SECURE_SSL_REDIRECT', 'off') == 'on'
 # See https://docs.djangoproject.com/en/2.1/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '*').split(';')
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL='noreply.pharmaziegasse@gmail.com'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'noreply.pharmaziegasse@gmail.com' #os.environ['EMAIL_HOST_USER'] 
+EMAIL_HOST_PASSWORD = 'Pharmaziegasse-9020' #os.environ['EMAIL_HOST_USER']
 
 # BASE_URL required for notification emails
 BASE_URL = 'https://pharmaziegasse.at'

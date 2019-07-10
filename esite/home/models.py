@@ -15,13 +15,14 @@ from modelcluster.fields import ParentalKey
 from esite.colorfield.fields import ColorField, ColorAlphaField
 from esite.colorfield.blocks import ColorBlock, ColorAlphaBlock, GradientColorBlock
 
+# Create your homepage related models here.
 
 @register_snippet
 class Button(models.Model):
     button_title = models.CharField(null=True, blank=False, max_length=255)
     #button_id = models.CharField(null=True, blank=True, max_length=255)
     #button_class = models.CharField(null=True, blank=True, max_length=255)
-    button_embed = models.CharField(null=True, blank=False, max_length=255)
+    button_embed = models.CharField(null=True, blank=True, max_length=255)
     button_link = models.URLField(null=True, blank=True)
     button_page = models.ForeignKey(
         'wagtailcore.Page',
@@ -221,7 +222,7 @@ class UniquePage(Page):
     copyrightholder = models.CharField(null=True, blank=False, max_length=255)
 
     privacy = RichTextField(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'])
-    
+
     sociallinks = StreamField([
       ('link', blocks.URLBlock())
     ])

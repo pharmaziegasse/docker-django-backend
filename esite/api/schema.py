@@ -31,6 +31,8 @@ import esite.charm.schema_relay
 import esite.charm.schema
 import esite.registration.schema
 
+# Register all your schemes for graphql here.
+
 # api version
 GRAPHQL_API_FORMAT = (0, 2, 0)
 
@@ -68,8 +70,8 @@ class Query(#esite.charm.schema.Query,
 
 def mutation_parameters() -> dict:
     dict_params = {
-        'login': LoginMutation.Field(),
-        'logout': LogoutMutation.Field(),
+        #'login': LoginMutation.Field(),
+        #'logout': LogoutMutation.Field(),
         'token_auth': graphql_jwt.ObtainJSONWebToken.Field(),
         'verify_token': graphql_jwt.Verify.Field(),
         'refresh_token': graphql_jwt.Refresh.Field(),

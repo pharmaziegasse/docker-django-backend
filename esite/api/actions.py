@@ -8,6 +8,8 @@ import graphene
 from graphene.types.generic import GenericScalar
 # graphene_django
 from graphene_django import DjangoObjectType
+# graphql_jwt
+from graphql_jwt.decorators import login_required, permission_required, staff_member_required, superuser_required
 # wagtail
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page as wagtailPage
@@ -47,10 +49,12 @@ def _add_form(cls: Type[AbstractForm], node: str, dict_params: dict) -> Type[gra
     registry.pages[cls] = type(node, (DjangoObjectType,), dict_params)
 
     args = type("Arguments", (), {'values': GenericScalar(),
-                                  "url": graphene.String(required=True)})
+                                  "url": graphene.String(required=True),
+                                  "token": graphene.String(required=True)})
     _node = node
 
-    def mutate(_self, info, url, values):
+    @login_required
+    def mutate(_self, info, token, url, values):
         url_prefix = url_prefix_for_site(info)
         query = wagtailPage.objects.filter(url_path=url_prefix + url.rstrip('/') + '/')
         instance = with_page_permissions(
