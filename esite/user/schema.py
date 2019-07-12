@@ -6,6 +6,8 @@ from graphql import GraphQLError
 
 from .models import User
 
+# Create your user related graphql schemes here.
+
 class UserType(DjangoObjectType):
     class Meta:
         model = User

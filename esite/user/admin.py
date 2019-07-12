@@ -1,4 +1,6 @@
-from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register)
+from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+
+# Register your user related models here.
 
 from .models import User
 

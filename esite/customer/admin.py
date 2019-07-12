@@ -1,4 +1,6 @@
-from wagtail.contrib.modeladmin.options import (ModelAdmin, modeladmin_register)
+from wagtail.contrib.modeladmin.options import ModelAdmin, modeladmin_register
+
+# Register your customer related models here.
 
 from .models import Customer
 
