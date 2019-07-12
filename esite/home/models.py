@@ -75,8 +75,8 @@ class _S_IndividualBlock(blocks.StructBlock):
     individual_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     individual_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Whether or not to display the header")
     individual_image = ImageChooserBlock(null=True, blank=False, help_text="Individual-fitting image")
-    individual_lead = blocks.RichTextBlock(null=True, blank=False, help_text="Bigger leading RichText paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     individual_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    individual_footer = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Footer text")
     individual_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at individual-section")
 
 
@@ -86,8 +86,8 @@ class _S_ExpertsBlock(blocks.StructBlock):
     experts_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     experts_displayhead = blocks.BooleanBlock(null=True, blank=True, required=False, help_text="Whether or not to display the header")
     experts_image = ImageChooserBlock(null=True, blank=False, help_text="Experts-fitting image")
-    experts_lead = blocks.RichTextBlock(null=True, blank=False, help_text="Bigger leading RichText paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     experts_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
+    experts_footer = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Footer text")
     experts_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at expert-section")
 
 
@@ -189,7 +189,8 @@ class _S_ManifestBlock(blocks.StructBlock):
     manifest_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
     manifest_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     manifest_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Manifest paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
-
+    manifest_image = ImageChooserBlock(null=True, blank=False, help_text="Image fitting manifest-section")     
+    
 
 # ## Specials Section ##
 # class Specials_SpecialBlock(blocks.StructBlock):
@@ -276,12 +277,6 @@ class _S_AboutBlock(blocks.StructBlock):
     about_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Paragraph about the company", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
 
 
-## Footer ##
-class _F_InfoBlock(blocks.StructBlock):
-    info_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
-    info_placeholder = blocks.CharBlock(null=True, blank=False, classname="full")
-
-
 ## Homepage ##
 class UniquePage(Page):
     city = models.CharField(null=True, blank=False, max_length=255)
@@ -314,14 +309,15 @@ class UniquePage(Page):
 
     sections = StreamField([
       ('s_why', _S_WhyBlock(null=True, blank=False, icon='group')),
-      ('s_individual', _S_IndividualBlock(null=True, blank=False, icon='user')),
-      ('s_experts', _S_ExpertsBlock(null=True, blank=False, icon='pick')),
+      ('s_individual', _S_IndividualBlock(null=True, blank=False, icon='user', max_num=1)),
+      ('s_experts', _S_ExpertsBlock(null=True, blank=False, icon='pick', max_num=1)),
       ('s_lab', _S_LabBlock(null=True, blank=False, icon='snippet')),
       ('s_method', _S_MethodBlock(null=True, blank=False, icon='site')),
       ('s_services', _S_ServicesBlock(null=True, blank=False, icon='openquote')),
       ('s_reviews', _S_ReviewsBlock(null=True, blank=False, icon='form')),
       ('s_features', _S_FeaturesBlock(null=True, blank=False, icon='fa-th')),
       ('s_steps', _S_StepsBlock(null=True, blank=False, icon='fa-list-ul')),
+      ('s_manifest', _S_StepsBlock(null=True, blank=False, icon='fa-comments')),
       ('s_manifest', _S_StepsBlock(null=True, blank=False, icon='fa-comments')),
       ('s_facebook', _S_FacebookBlock(null=True, blank=False, icon='fa-facebook-official')),
       ('s_instagram', _S_InstagramBlock(null=True, blank=False, icon='fa-instagram')),
@@ -330,17 +326,11 @@ class UniquePage(Page):
       ('code', blocks.RawHTMLBlock(null=True, blank=True, classname="full", icon='code'))
     ], null=True, blank=False)
 
-    footers = StreamField([
-      ('f_info', _F_InfoBlock(null=True, blank=False, icon='placeholder')),
-      ('code', blocks.RawHTMLBlock(null=True, blank=True, classname="full", icon='code'))
-    ], null=True, blank=False)
-
     token = models.CharField(null=True, blank=True, max_length=255)
 
     main_content_panels = [
       StreamFieldPanel('headers'),
-      StreamFieldPanel('sections'),
-      StreamFieldPanel('footers')
+      StreamFieldPanel('sections')
     ]
 
     imprint_panels = [
