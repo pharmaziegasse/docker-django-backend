@@ -169,6 +169,9 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'user.User'
 #AUTH_PROFILE_MODULE = 'avatar.Avatar'
 
+# A list of the extra custom fields to be appended to the default creation Form.
+WAGTAIL_USER_CUSTOM_FIELDS = ['is_staff']
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
