@@ -288,6 +288,8 @@ class UniquePage(Page):
     telephone = models.CharField(null=True, blank=False, max_length=255)
     telefax = models.CharField(null=True, blank=False, max_length=255)
     vat_number = models.CharField(null=True, blank=False, max_length=255)
+    whatsapp_telephone = models.CharField(null=True, blank=True, max_length=255)
+    whatsapp_contactline = models.CharField(null=True, blank=True, max_length=255)
     tax_id = models.CharField(null=True, blank=False, max_length=255)
     trade_register_number = models.CharField(null=True, blank=False, max_length=255)
     court_of_registry = models.CharField(null=True, blank=False, max_length=255)
@@ -343,6 +345,8 @@ class UniquePage(Page):
           FieldPanel('address'),
           FieldPanel('telephone'),
           FieldPanel('telefax'),
+          FieldPanel('whatsapp_telephone'),
+          FieldPanel('whatsapp_contactline'),
           FieldPanel('email'),
           FieldPanel('copyrightholder')
         ],
