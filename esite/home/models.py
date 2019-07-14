@@ -259,6 +259,7 @@ class Pricing_PricingcardBlock(blocks.StructBlock):
     pricingcard_title = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Title of pricing card")
     pricingcard_description = blocks.RichTextBlock(null=True, blank=False, help_text="Description of offer", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     pricingcard_price = blocks.DecimalBlock(null=True, blank=False, decimal_places=2, help="Price of the offer")
+    pricingcard_sucessmsg = blocks.RichTextBlock(null=True, blank=False, help_text="Success message", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     pricingcard_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at the pricing-section")
 
 class _S_PricingBlock(blocks.StructBlock):
