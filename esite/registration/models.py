@@ -148,9 +148,11 @@ class FormPage(AbstractEmailForm):
         
         content += '\n\nMade with ❤ by Werbeagentur Christian Aichner'
 
-        emailfooter = '<style>@keyframes pulse { 10% { color: red; } }</style><p>Made with <span style="width: 20px; height: 1em; color:#dd0000; animation: pulse 1s infinite;">&#x2764;</span> by <a style="color: lightgrey" href="https://www.aichner-christian.com" target="_blank">Werbeagentur Christian Aichner</a></p>'
-        html_message = f"{self.subject}\n\n{emailheader}\n\n{content}\n\n{self.from_address}\n\n{emailfooter}"
-        send_mail(self.subject, content, ("f.kleber@gasser-partner.at",), self.from_address)
+        #emailfooter = '<style>@keyframes pulse { 10% { color: red; } }</style><p>Made with <span style="width: 20px; height: 1em; color:#dd0000; animation: pulse 1s infinite;">&#x2764;</span> by <a style="color: lightgrey" href="https://www.aichner-christian.com" target="_blank">Werbeagentur Christian Aichner</a></p>'
+        
+        #html_message = f"{emailheader}\n\n{content}\n\n{emailfooter}"
+        
+        send_mail(self.subject, f"{emailheader}\n\n{content}", addresses, self.from_address)
     
     def process_form_submission(self, form):
 
