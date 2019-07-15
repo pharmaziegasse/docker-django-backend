@@ -44,7 +44,7 @@ class User(AbstractUser):
 
         send_mail(
           'got activated',
-          'hello world',
+          'You got activated.',
           'noreply@pharmaziegasse.at',
           ['f.kleber@gasser-partner.at'],
           fail_silently=False,
@@ -65,7 +65,7 @@ class User(AbstractUser):
   #  FieldPanel('email'),
   #  FieldPanel('telephone'),
   #  FieldPanel('address'),
-  #  FieldPanel('zipCode'),
+  #  FieldPanel('postal_code'),
   #  FieldPanel('city'),
   #  FieldPanel('country'),
   #  FieldPanel('newsletter'),
