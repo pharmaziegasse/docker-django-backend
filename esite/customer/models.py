@@ -14,7 +14,6 @@ from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField, A
 from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 from esite.user.models import User
 
-# Create your customer related models here.
 
 # Model manager to use in Proxy model
 class ProxyManager(BaseUserManager):

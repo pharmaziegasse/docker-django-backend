@@ -16,7 +16,6 @@ from wagtail.admin.edit_handlers import TabbedInterface, ObjectList, InlinePanel
 from wagtail.contrib.forms.models import AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 from wagtail.contrib.forms.models import AbstractForm, AbstractFormField, AbstractEmailForm, AbstractFormField, AbstractFormSubmission
 
-# Create your user related models here.
 
 # extend AbstractUser Model from django.contrib.auth.models
 class User(AbstractUser):
@@ -36,7 +35,6 @@ class User(AbstractUser):
 
   # custom save function
   def save(self, *args, **kwargs):
-
     if not self.username:
       self.username = str(uuid.uuid4())
 
@@ -51,6 +49,7 @@ class User(AbstractUser):
           ['f.kleber@gasser-partner.at'],
           fail_silently=False,
         )
+
 
     else:
       self.is_active = False

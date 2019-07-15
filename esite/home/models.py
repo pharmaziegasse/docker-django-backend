@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.db import models
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
@@ -297,7 +298,6 @@ class UniquePage(Page):
     trade_register_number = models.CharField(null=True, blank=False, max_length=255)
     ownership = models.CharField(null=True, blank=False, max_length=255)
     email = models.CharField(null=True, blank=False, max_length=255)
-    sociallinks = models.CharField(null=True, blank=False, max_length=255)
 
     copyrightholder = models.CharField(null=True, blank=False, max_length=255)
 
@@ -306,6 +306,13 @@ class UniquePage(Page):
     sociallinks = StreamField([
       ('link', blocks.URLBlock())
     ])
+
+    array = []
+    def sociallink_company(self):
+      for link in self.sociallinks:
+        self.array.append(str(link).split(".")[1])
+      return self.array
+
 
     headers = StreamField([
       ('h_hero', _H_HeroBlock(null=True, blank=False, icon='image')),

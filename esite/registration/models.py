@@ -87,7 +87,8 @@ class FormPage(AbstractEmailForm):
           ],
           heading="content",
         ),
-      MultiFieldPanel([
+      MultiFieldPanel(
+          [
             FieldRowPanel([
                 FieldPanel('from_address', classname="col6"),
                 FieldPanel('to_address', classname="col6"),
@@ -109,7 +110,6 @@ class FormPage(AbstractEmailForm):
 
     # Create a new user
     def create_user(self, title, first_name, last_name, email, telephone, address, city, country, newsletter, verified, registration_data):
-
         # enter the data here
         user = get_user_model()(
             is_customer=False,
