@@ -28,6 +28,7 @@ class User(AbstractUser):
   address = models.CharField(null=True, blank=False, max_length=60)
   zipCode = models.CharField(null=True, blank=False, max_length=12)
   city = models.CharField(null=True, blank=False,max_length=60)
+  postal_code = models.CharField(null=True, blank=False,max_length=16)
   country = models.CharField(null=True, blank=False, max_length=2)
   newsletter = models.BooleanField(blank=False, default=False)
   registration_data = models.TextField(null=True, blank=False)
