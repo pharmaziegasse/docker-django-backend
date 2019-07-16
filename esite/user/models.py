@@ -38,7 +38,7 @@ class User(AbstractUser):
     if not self.username:
       self.username = str(uuid.uuid4())
 
-    if self.is_staff or self.is_customer:
+    if not self.registration_data or self.is_customer:
       if not self.is_active:
         self.is_active = True
 
