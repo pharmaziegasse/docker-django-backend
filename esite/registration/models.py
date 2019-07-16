@@ -109,7 +109,7 @@ class FormPage(AbstractEmailForm):
         return RegistrationFormSubmission
 
     # Create a new user
-    def create_user(self, title, first_name, last_name, email, telephone, address, city, country, newsletter, verified, registration_data):
+    def create_user(self, title, first_name, last_name, email, telephone, address, city, postal_code, country, newsletter, verified, registration_data):
         # enter the data here
         user = get_user_model()(
             is_customer=False,
