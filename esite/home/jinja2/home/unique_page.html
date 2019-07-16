@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="full-height" lang="de">
 
@@ -93,7 +91,7 @@
                                                     <div class="hero-content">
                                                         <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown"
                                                             data-wow-delay="0.3s"><strong>
-                                                                {{ s.slide_head }}
+                                                                {{ s.slide_head|safe }}
                                                             </strong></h1>
                                                         <h3 class="my-5 white-text wow fadeInDown"
                                                             data-wow-delay="0.4s">
@@ -169,7 +167,7 @@
             <section id="why" style="background-color: {{ s.value.why_background }};">
                 <div class="container text-center py-5">
                     {% if s.value.why_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.why_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.why_head|safe }}</h2>
                     {% endif %}
                     <div class="row section0-row my-5">
                         <div class="col-md-4">
@@ -223,7 +221,7 @@
             <section id="facebook" style="background-color: {{ s.value.facebook_background }}">
                 <div class="container py-5">
                     {% if s.value.facebook_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.facebook_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.facebook_head|safe }}</h2>
                     {% endif %}
                     <div class="row mt-4 w-100">
                         {% for f in s.value.facebook_urls %}
@@ -252,7 +250,7 @@
             <section id="experts" style="background-color: {{ s.value.experts_background }}">
                 <div class="container pt-5 text-left">
                     {% if s.value.experts_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.experts_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.experts_head|safe }}</h2>
                     {% endif %}
                     <div class="row mt-5">
                         <div class="col-md-6">
@@ -312,7 +310,7 @@
                                 <div class="carousel-item active">
                                     <div class="testimonial pb-5">
                                         <div class="num-display font-weight-bold"><span>01</span></div>
-                                        <h2 class="h1-responsive font-weight-bold mb-5">{{ c.value.service_head }}</h2>
+                                        <h2 class="h1-responsive font-weight-bold mb-5">{{ c.value.service_head|safe }}</h2>
                                         <div>
                                             <p>{{ c.value.service_content }}</p>
                                         </div>
@@ -325,7 +323,7 @@
                                     <div class="testimonial pb-5">
                                         <div class="num-display font-weight-bold"><span>0{{ loop.index }}</span>
                                         </div>
-                                        <h2 class="h1-responsive font-weight-bold mb-5">{{ c.value.service_head }}</h2>
+                                        <h2 class="h1-responsive font-weight-bold mb-5">{{ c.value.service_head|safe }}</h2>
                                         <div>
                                             <p>{{ c.value.service_content }}</p>
                                         </div>
@@ -361,7 +359,7 @@
             <section id="individual" style="background-color: {{ s.value.individual_background }};">
                 <div class="container py-5 text-left">
                     {% if s.value.individual_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.individual_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.individual_head|safe }}</h2>
                     {% endif %}
                     <div class="row my-5">
                         <div class="col-md-6">
@@ -399,7 +397,7 @@
             <section id="method" style="background-color: {{ s.value.method_background }};">
                 <div class="container py-5">
                     {% if s.value.method_displayhead %}
-                    <h2 class="h1-responsive font-weight-bold mb-5 pb-5">{{ s.value.method_head }}</h2>
+                    <h2 class="h1-responsive font-weight-bold mb-5 pb-5">{{ s.value.method_head|safe }}</h2>
                     {% endif %}
                     <ul class="graviola-container d-block d-sm-none">
                         <li>
@@ -470,7 +468,7 @@
             <section id="gallery" style="background-color: {{ s.value.instagram_background }};">
                 <div class="container instagram py-5">
                     {% if s.value.instagram_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.instagram_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.instagram_head|safe }}</h2>
                     {% endif %}
                     <div class="row mt-4">
                         {% for f in s.value.instagram_urls %}
@@ -493,7 +491,7 @@
             <section id="reviews" style="background-color: {{ s.value.reviews_background }}">
                 <div class="container py-5">
                     {% if s.value.reviews_displayhead %}
-                    <h2 class="h1-responsive font-weight-bold mb-5">{{ s.value.reviews_head }}</h2>
+                    <h2 class="h1-responsive font-weight-bold mb-5">{{ s.value.reviews_head|safe }}</h2>
                     {% endif %}
                     <div class="wrapper-carousel-fix">
                         <div id="customer-carousel"
@@ -550,7 +548,7 @@
             <section id="pricing" style="background-color: {{ s.value.pricing_background }}">
                 <div class="container py-5">
                     {% if s.value.pricing_displayhead %}
-                    <h2 class="h1-responsive font-weight-bold mb-5">{{ s.value.pricing_head }}</h2>
+                    <h2 class="h1-responsive font-weight-bold mb-5">{{ s.value.pricing_head|safe }}</h2>
                     {% endif %}
                     <div class="row">
                         {% for p in s.value.pricing_pricingcards %}
@@ -594,7 +592,7 @@
             <section id="lab" style="background-color: {{ s.value.lab_background }}">
                 <div class="container py-5 text-left">
                     {% if s.value.lab_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.lab_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.lab_head|safe }}</h2>
                     {% endif %}
                     <div class="text-center my-5">
                         {{ image(s.value.lab_image, draggable="false", class="img-fluid") }}</div>
@@ -633,7 +631,7 @@
             <section id="about" style="background-color: {{ s.value.about_background }}">
                 <div class="container py-5 text-left">
                     {% if s.value.about_displayhead %}
-                    <h2 class="font-weight-bold">{{ s.value.about_head }}</h2>
+                    <h2 class="font-weight-bold">{{ s.value.about_head|safe }}</h2>
                     {% endif %}
                     <div class="row my-5">
                         <div class="col-md-6">
@@ -649,9 +647,7 @@
             {% endif %}
             {% endfor %}
 
-            {% for f in page.footers %}
-            {% if f.block_type == 'f_info' %}
-            <footer class="page-footer font-small lighten-5 py-4 " style="background-color: {{ f.value.info_background }}">
+            <footer class="page-footer font-small lighten-5 py-4 " style="background-color: #FFFFFF">
                 <div class="container text-center text-md-left">
                     <div class="row text-center text-md-left mt-3 pb-3 dark-grey-text">
                         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3"><img class="img-fluid"
@@ -702,8 +698,6 @@
                     </div>
                 </div>
             </footer>
-            {% endif %}
-            {% endfor %}
 
             <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="Registrieren"
                 aria-hidden="true" data-backdrop="true">

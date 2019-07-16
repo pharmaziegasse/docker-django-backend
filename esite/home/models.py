@@ -304,7 +304,7 @@ class UniquePage(Page):
     privacy = RichTextField(null=True, blank=False, features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'])
     
     sociallinks = StreamField([
-      ('link', blocks.URLBlock())
+      ('link', blocks.URLBlock(help_text="Important! Format https://www.domain.tld/xyz"))
     ])
 
     array = []
