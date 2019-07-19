@@ -173,7 +173,7 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-12">
-                                    {{ image(s.value.why_collum1.collum_image, draggable="false", class="img-fluid", "original") }}
+                                    {{ image(s.value.why_collum1.collum_image, "original", draggable="false", class="img-fluid") }}
                                 </div>
                                 <div class="col-12">
                                     {{ s.value.why_collum1.collum_paragraph|richtext }}
@@ -183,7 +183,7 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-12">
-                                    {{ image(s.value.why_collum2.collum_image, draggable="false", class="img-fluid", "original") }}
+                                    {{ image(s.value.why_collum2.collum_image, "original", draggable="false", class="img-fluid") }}
                                 </div>
                                 <div class="col-12">
                                     {{ s.value.why_collum2.collum_paragraph|richtext }}
@@ -193,7 +193,7 @@
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-12">
-                                    {{ image(s.value.why_collum3.collum_image, draggable="false", class="img-fluid", "original") }}
+                                    {{ image(s.value.why_collum3.collum_image, "original", draggable="false", class="img-fluid") }}
                                 </div>
                                 <div class="col-12">
                                     {{ s.value.why_collum3.collum_paragraph|richtext }}
@@ -256,7 +256,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-12 mb-5">
-                                    {{ image(s.value.experts_image, "original", draggable="false", class="img-fluid", "original") }}</div>
+                                    {{ image(s.value.experts_image, "original", draggable="false", class="img-fluid") }}</div>
                                 <div class="col-12">
                                         {% if s.value.experts_button %}
                                         {% if s.value.experts_button.button_embed %}
@@ -373,7 +373,7 @@
                         <div class="col-md-6 text-center">
                             <div class="row">
                                 <div class="col-12 mb-5">
-                                    {{ image(s.value.individual_image, draggable="false", class="img-fluid", "original") }}
+                                    {{ image(s.value.individual_image, "original", draggable="false", class="img-fluid") }}
                                 </div>
                                 <div class="col-12">
                                         {% if s.value.individual_button %}
@@ -595,7 +595,7 @@
                     <h2 class="font-weight-bold">{{ s.value.lab_head|safe }}</h2>
                     {% endif %}
                     <div class="text-center my-5">
-                        {{ image(s.value.lab_image, draggable="false", class="img-fluid", "original") }}</div>
+                        {{ image(s.value.lab_image, "original", draggable="false", class="img-fluid") }}</div>
                     <div class="row my-5">
                         <div class="col-md-6">
                             <div class="row h-100">
@@ -635,7 +635,7 @@
                     {% endif %}
                     <div class="row my-5">
                         <div class="col-md-6">
-                            {{ image(s.value.about_image, draggable="false", class="img-fluid", "original") }}</div>
+                            {{ image(s.value.about_image, "original", draggable="false", class="img-fluid") }}</div>
                         <div class="col-md-6">
                             <div>
                                 <p>{{ s.value.about_paragraph|richtext }}</p>
