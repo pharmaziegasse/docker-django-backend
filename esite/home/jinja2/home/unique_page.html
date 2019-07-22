@@ -374,38 +374,36 @@
                     {% endif %}
                     <div class="row my-5">
                         <div class="col-md-6">
-                            <div class="row">
-                                <div>
-                                    {{ s.value.individual_paragraph }}
-                                </div>
-
-                                {% if s.value.individual_footer %}
-                                <div class="alert alert-info" role="alert">
-                                    {{ s.value.individual_footer }}    
-                                </div>
-                                {% endif %}
+                            <div>
+                                {{ s.value.individual_paragraph }}
                             </div>
 
-                            <div class="col-md-6 text-center">
-                                <div class="row">
-                                    <div class="col-12 mb-5">
-                                        {{ image(s.value.individual_image, "original", draggable="false", class="img-fluid") }}
-                                    </div>
-                                    <div class="col-12">
+                            {% if s.value.individual_footer %}
+                            <div class="alert alert-info" role="alert">
+                                {{ s.value.individual_footer }}    
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6 text-center">
+                            <div class="row">
+                                <div class="col-12 mb-5">
+                                    {{ image(s.value.individual_image, "original", draggable="false", class="img-fluid") }}
+                                </div>
+                                <div class="col-12">
+                                    <div>
                                         <div>
-                                            <div>
-                                                {% if s.value.individual_button %}
-                                                {% if s.value.individual_button.button_embed %}
-                                                <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
-                                                    {{ s.value.individual_button.button_title }}
-                                                </button>
-                                                {% elif s.value.individual_button.button_link %}
-                                                <a href="{{ s.value.individual_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
-                                                    {{ s.value.individual_button.button_title }}
-                                                </a>
-                                                {% endif %}
-                                                {% endif %}
-                                            </div>
+                                            {% if s.value.individual_button %}
+                                            {% if s.value.individual_button.button_embed %}
+                                            <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                                                {{ s.value.individual_button.button_title }}
+                                            </button>
+                                            {% elif s.value.individual_button.button_link %}
+                                            <a href="{{ s.value.individual_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
+                                                {{ s.value.individual_button.button_title }}
+                                            </a>
+                                            {% endif %}
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
