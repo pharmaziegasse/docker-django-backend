@@ -101,9 +101,11 @@
                                                         </h3>
                                                         {% if s.slide_button %}
                                                         {% if s.slide_button.button_embed %}
-                                                            {{ s.slide_button.button_embed }}
+                                                        <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                                                            {{ s.slide_button.button_title }}
+                                                        </button>
                                                         {% elif s.slide_button.button_link %}
-                                                        <a href="{{ h.slide_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                                                        <a href="{{ h.slide_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                                                             {{ s.slide_button.button_title }}
                                                         </a>
                                                         {% endif %}
@@ -203,9 +205,11 @@
                     </div>
                     {% if s.value.why_button %}
                     {% if s.value.why_button.button_embed %}
-                        {{ s.value.why_button.button_embed }}
+                    <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                        {{ s.value.why_button.button_title }}
+                    </button>
                     {% elif s.value.why_button.button_link %}
-                    <a href="{{ s.value.why_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                    <a href="{{ s.value.why_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                         {{ s.value.why_button.button_title }}
                     </a>
                     {% endif %}
@@ -260,9 +264,11 @@
                                 <div class="col-12">
                                         {% if s.value.experts_button %}
                                         {% if s.value.experts_button.button_embed %}
-                                            {{ s.value.experts_button.button_embed }}
+                                        <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                                            {{ s.value.experts_button.button_title }}
+                                        </button>
                                         {% elif s.value.experts_button.button_link %}
-                                        <a href="{{ s.value.experts_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                                        <a href="{{ s.value.experts_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                                             {{ s.value.experts_button.button_title }}
                                         </a>
                                         {% endif %}
@@ -271,12 +277,15 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="lead">
-                                {{ s.value.experts_lead|richtext}}
-                            </div>
                             <div>
-                                {{ s.value.experts_paragraph|richtext }}
+                                {{ s.value.experts_paragraph }}
                             </div>
+
+                            {% if s.value.experts_footer %}
+                            <div class="alert alert-info" role="alert">
+                                {{ s.value.experts_footer }}    
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -344,9 +353,11 @@
                     </div>
                     {% if s.value.services_button %}
                     {% if s.value.services_button.button_embed %}
-                        {{ s.value.services_button.button_embed }}
+                    <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                        {{ s.value.services_button.button_title }}
+                    </button>
                     {% elif s.value.services_button.button_link %}
-                    <a href="{{ s.value.services_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                    <a href="{{ s.value.services_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                         {{ s.value.services_button.button_title }}
                     </a>
                     {% endif %}
@@ -363,28 +374,40 @@
                     {% endif %}
                     <div class="row my-5">
                         <div class="col-md-6">
-                            <div class="lead">
-                                {{ s.value.individual_lead|richtext }}
-                            </div>
-                            <div>
-                                {{ s.value.individual_paragraph|richtext }}
-                            </div>
-                        </div>
-                        <div class="col-md-6 text-center">
                             <div class="row">
-                                <div class="col-12 mb-5">
-                                    {{ image(s.value.individual_image, "original", draggable="false", class="img-fluid") }}
+                                <div>
+                                    {{ s.value.individual_paragraph }}
                                 </div>
-                                <div class="col-12">
-                                        {% if s.value.individual_button %}
-                                        {% if s.value.individual_button.button_embed %}
-                                            {{ s.value.individual_button.button_embed }}
-                                        {% elif s.value.individual_button.button_link %}
-                                        <a href="{{ s.value.individual_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
-                                            {{ s.value.individual_button.button_title }}
-                                        </a>
-                                        {% endif %}
-                                        {% endif %}
+
+                                {% if s.value.individual_footer %}
+                                <div class="alert alert-info" role="alert">
+                                    {{ s.value.individual_footer }}    
+                                </div>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-6 text-center">
+                                <div class="row">
+                                    <div class="col-12 mb-5">
+                                        {{ image(s.value.individual_image, "original", draggable="false", class="img-fluid") }}
+                                    </div>
+                                    <div class="col-12">
+                                        <div>
+                                            <div>
+                                                {% if s.value.individual_button %}
+                                                {% if s.value.individual_button.button_embed %}
+                                                <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                                                    {{ s.value.individual_button.button_title }}
+                                                </button>
+                                                {% elif s.value.individual_button.button_link %}
+                                                <a href="{{ s.value.individual_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
+                                                    {{ s.value.individual_button.button_title }}
+                                                </a>
+                                                {% endif %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -453,9 +476,11 @@
                     
                     {% if s.value.method_button %}
                     {% if s.value.method_button.button_embed %}
-                        {{ s.value.method_button.button_embed }}
+                    <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                        {{ s.value.method_button.button_title }}
+                    </button>
                     {% elif s.value.method_button.button_link %}
-                    <a href="{{ s.value.method_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                    <a href="{{ s.value.method_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                         {{ s.value.method_button.button_title }}
                     </a>
                     {% endif %}
@@ -572,9 +597,11 @@
                                     <hr class="mt-0">
                                     {% if p.value.pricingcard_button %}
                                     {% if p.value.pricingcard_button.button_embed %}
-                                        {{ p.value.pricingcard_button.button_embed }}
+                                    <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                                        {{ p.value.pricingcard_button.button_title }}
+                                    </button>
                                     {% elif p.value.pricingcard_button.button_link %}
-                                    <a href="{{ p.value.pricingcard_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                                    <a href="{{ p.value.pricingcard_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                                         {{ p.value.pricingcard_button.button_title }}
                                     </a>
                                     {% endif %}
@@ -607,9 +634,11 @@
                                 <div class="col-12">
                                     {% if s.value.lab_button %}
                                     {% if s.value.lab_button.button_embed %}
-                                        {{ s.value.lab_button.button_embed }}
+                                    <button data-toggle="modal" data-target="#registration" class="btn font-weight-bold btn-white btn-rounded">
+                                        {{ s.value.lab_button.button_title }}
+                                    </button>
                                     {% elif s.value.lab_button.button_link %}
-                                    <a href="{{ s.value.lab_button.button_link }}" class="btn btn-white btn-rounded btn-lg wow fadeInDown font-weight-bold">
+                                    <a href="{{ s.value.lab_button.button_link }}" class="btn font-weight-bold btn-white btn-rounded">
                                         {{ s.value.lab_button.button_title }}
                                     </a>
                                     {% endif %}
