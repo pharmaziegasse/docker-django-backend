@@ -76,9 +76,9 @@ class _S_IndividualBlock(blocks.StructBlock):
     individual_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     individual_displayhead = blocks.BooleanBlock(null=True, blank=True, default=True, required=False, help_text="Whether or not to display the header")
     individual_image = ImageChooserBlock(null=True, blank=False, help_text="Individual-fitting image")
-    individual_lead = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     individual_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Content paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     individual_footer = blocks.CharBlock(null=True, blank=True, required=False, classname="full title", help_text="Footer text")
+    individual_footer_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
     individual_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at individual-section")
 
 
@@ -169,7 +169,7 @@ class _S_FeaturesBlock(blocks.StructBlock):
 
 ## Steps Section ##
 class Steps_StepBlock(blocks.StructBlock):
-    step_icon = blocks.CharBlock(null=True, blank=False, help_text="Font Awesome icon name (e.g. facebook-f) from https://fontawesome.com/icons?d=gallery&s=regular&m=free")
+    step_icon = blocks.CharBlock(null=True, blank=False, help_text="Font Awesome icon name (e.g. facebook-f) from https://fontawesome.com/icons?d=gallery&s=solid&m=free")
     step_head = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Bold header text")
     step_image = ImageChooserBlock(null=True, blank=False, help_text="Image fitting this step")     
     step_paragraph = blocks.RichTextBlock(null=True, blank=False, help_text="Step paragraph", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
@@ -257,11 +257,13 @@ class _S_InstagramBlock(blocks.StructBlock):
 
 ## Pricing Section ##
 class Pricing_PricingcardBlock(blocks.StructBlock):
+    pricingcard_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
     pricingcard_title = blocks.CharBlock(null=True, blank=False, classname="full title", help_text="Title of pricing card")
     pricingcard_description = blocks.RichTextBlock(null=True, blank=False, help_text="Description of offer", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     pricingcard_price = blocks.DecimalBlock(null=True, blank=False, decimal_places=2, help="Price of the offer")
     pricingcard_sucessmsg = blocks.RichTextBlock(null=True, blank=False, help_text="Success message", features=['bold', 'italic', 'underline', 'strikethrough', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'ol', 'ul', 'hr', 'embed', 'link', 'superscript', 'subscript', 'document-link', 'image', 'code'], classname="full")
     pricingcard_button = SnippetChooserBlock(Button, null=True, blank=True, required=False, help_text="Button displayed at the pricing-section")
+    pricingcard_button_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
 
 class _S_PricingBlock(blocks.StructBlock):
     pricing_background = ColorBlock(null=True, blank=False, help_text="Select background color that contrasts text")
