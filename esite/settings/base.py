@@ -183,9 +183,6 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTH_USER_MODEL = 'user.User'
 #AUTH_PROFILE_MODULE = 'avatar.Avatar'
 
-# A list of the extra custom fields to be appended to the default creation Form.
-WAGTAIL_USER_CUSTOM_FIELDS = ['is_staff']
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -233,4 +230,14 @@ MEDIA_URL = '/media/'
 
 # Wagtail settings
 
-WAGTAIL_SITE_NAME = "esite"
+WAGTAIL_SITE_NAME = 'esite'
+
+# A list of the extra custom fields to be appended to the default creation Form.
+# See https://github.com/wagtail/wagtail/blob/master/docs/advanced_topics/settings.rst
+# But doesn't seem to work yet.
+#WAGTAIL_USER_CUSTOM_FIELDS = ['is_staff']
+
+# Implements the main part of #1420, based on earlier work from @tobiasmcnulty in #3772. Document serving can now be configured to:
+# See https://github.com/wagtail/wagtail/pull/5296
+# But doesn't seem to work yet.
+#WAGTAILDOCS_SERVE_METHOD = 'serve_view'
