@@ -1005,6 +1005,7 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
 
+        /*
         // if URL is wagtail preview page
         let link = window.location.href;
         var checkPrev = link.includes("/edit/preview")
@@ -1013,13 +1014,15 @@
             // Temporary Preview token
             if (window.location.search != "?token={{ page.token }}")
                 document.body.innerHTML = '<div class="flex-center flex-column"><h1 class="animated fadeIn mb-4 red-text"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i></h1><h5 class="animated fadeIn mb-3">Not authorized.</h5><p class="animated fadeIn text-muted">Please proceed with token.</p></div>';
+        */
+
 
         // set font color black or white per section to fit background color
         for (sec of document.getElementsByTagName('section')) {
             let bgcolor = sec.style.backgroundColor;
             sec.setAttribute("class", isDark(bgcolor));
         }
-
+        
         function isDark(rgb) {
             let match = /rgb\((\d+).*?(\d+).*?(\d+)\)/.exec(rgb);
             let result = ( match[1] & 255 )
