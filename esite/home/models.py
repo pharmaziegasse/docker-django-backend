@@ -376,6 +376,7 @@ class UniquePage(Page):
         StreamFieldPanel('sociallinks'),
         MultiFieldPanel(
             [
+            FieldPanel('about')
             FieldPanel('privacy')
             ],
             heading="privacy",
